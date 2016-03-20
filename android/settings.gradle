@@ -1,0 +1,3 @@
+rootProject.name = 'Theinngu32'
+
+include ':app'
