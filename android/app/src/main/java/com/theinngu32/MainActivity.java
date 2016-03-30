@@ -1,6 +1,9 @@
 package com.theinngu32;
 
 import com.facebook.react.ReactActivity;
+import com.rnfs.RNFSPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.microsoft.codepush.react.CodePushReactPackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -34,7 +37,10 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
+            new MainReactPackage(),
+            new RNFSPackage(),
+        new VectorIconsPackage(),
+        new CodePushReactPackage()
         );
     }
 }
