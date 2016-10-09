@@ -30,6 +30,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		97884AF6960740D991E2515A /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B32CA0EC64A4034B45E8A0E /* Zocial.ttf */; };
 		A1B76DF577094C81AC1D2736 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68FDC86877444D9A297EF71 /* Octicons.ttf */; };
+		AABFF1551CBE7DE700273273 /* ZawgyiOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AABFF1541CBE7DE700273273 /* ZawgyiOne.ttf */; };
 		AAD6A7EC1CAB9381008C0D2D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD6A7EB1CAB9381008C0D2D /* libsqlite3.0.tbd */; };
 		C739BE1A734C4BB8A5407539 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C3C9C0BF8494D39A1C3AF0E /* Entypo.ttf */; };
 		CB00ED61305F4FC79A036651 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C592E5A9FA5B4FD58E13DB1C /* MaterialIcons.ttf */; };
@@ -206,6 +207,7 @@
 		9DEC9DEE746C4282B1C8C450 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		A4411E15E1604AD789F80180 /* RNSpinkit.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSpinkit.xcodeproj; path = "../node_modules/react-native-spinkit/ios/RNSpinkit.xcodeproj"; sourceTree = "<group>"; };
 		AA2EB12B1CAB6D9A007210A0 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
+		AABFF1541CBE7DE700273273 /* ZawgyiOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ZawgyiOne.ttf; path = Theinngu32/ZawgyiOne.ttf; sourceTree = "<group>"; };
 		AAD6A7EB1CAB9381008C0D2D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AADAC8BB1CAB6BA300E9B127 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AFFE04706B82452BAEA25A42 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				AABFF1541CBE7DE700273273 /* ZawgyiOne.ttf */,
 				AAD6A7EB1CAB9381008C0D2D /* libsqlite3.0.tbd */,
 				AADAC8BB1CAB6BA300E9B127 /* libz.tbd */,
 				13B07FAE1A68108700A75B9A /* Theinngu32 */,
@@ -768,6 +771,7 @@
 				E067B2F434574527ADDC2011 /* Foundation.ttf in Resources */,
 				0DA0B015B7014905B886004A /* Ionicons.ttf in Resources */,
 				CB00ED61305F4FC79A036651 /* MaterialIcons.ttf in Resources */,
+				AABFF1551CBE7DE700273273 /* ZawgyiOne.ttf in Resources */,
 				A1B76DF577094C81AC1D2736 /* Octicons.ttf in Resources */,
 				97884AF6960740D991E2515A /* Zocial.ttf in Resources */,
 			);

@@ -37,14 +37,15 @@ class AudioList extends Component {
     Database.loadDB();
 
     // Local state to show/hide Toast box
-    this.state = {toastText: '',isVisible: false, temp:''};
+    var ds = new ListView.DataSource({ rowHasChanged:(r1,r2) => r1.place_id !== r2.place_id });
+    this.state = {toastText: '',isVisible: false, temp:'', files:ds.cloneWithRows([])};
 
     // Early binding
     this.hideToast = this.hideToast.bind(this)
     // this.onRowPressed = this.onRowPressed.bind(this)
     // this.onFavPressed = this.onFavPressed.bind(this)
     this.renderRow = this.renderRow.bind(this)
-    // this.updateList = this.updateList.bind(this)
+    this.updateList = this.updateList.bind(this)
     this.getAudioFileList = this.getAudioFileList.bind(this)
   }
 
@@ -129,30 +130,21 @@ class AudioList extends Component {
 
 
   renderRow(rowData, i, j){
-    var address = "HELLO" ; //rowData.formatted_address;
+    var address = rowData.title;
     // var imageURI = 'https://maps.googleapis.com/maps/api/streetview?size=800x800&location=' + rowData.geometry.location.lat + ',' + rowData.geometry.location.lng;
     var favIcon = rowData.isFav ?
     (<IonIcon name = "ios-star" size = {28} color = "ffde00" style = {styles.fav} allowFontScaling={false}/>):
     (<IonIcon name = "ios-star-outline" size = {28} color = "ff9900" style = {styles.fav} allowFontScaling={false}/>);
     return(
-      <TouchableHighlight onPress={this.onRowPressed.bind(this, rowData)}
-          underlayColor='#dddddd'>
-          <View animation="fadeIn" duration={800} delay={200}>
-                <View style={styles.row}>
-                    <View style={styles.rowAddress}>
-                        <Text style={styles.address}>{address}</Text>
-                        <TouchableHighlight style = {styles.favTouchable}  onPress={(rowData.isFav) ?  this.onFavPressed.bind(this, rowData, j, true) : this.onFavPressed.bind(this, rowData, j, false)} underlayColor='#fff'>
-                            {favIcon}
-                        </TouchableHighlight>
-                    </View>
-                    <Image style = {styles.thumb}
-                           source = {{uri: imageURI}}
-                           defaultSource = {require('../../assets/loading_streetview.png')}
-                           loadingIndicatorSource = {require('../../assets/loading_streetview.png')} />
+      <View animation="fadeIn" duration={800} delay={200}>
+            <View style={styles.row}>
+                <View style={styles.rowAddress}>
+                    <Text style={{fontFamily: 'Zawgyi-One'}}>{address}</Text>
+
                 </View>
-                <View style={styles.separator}/>
-          </View>
-      </TouchableHighlight>
+            </View>
+            <View style={styles.separator}/>
+      </View>
     )
   }
 
@@ -188,6 +180,8 @@ class AudioList extends Component {
         console.log(list[0]);
         console.log(jsonList[0]);
         this.setState({temp:jsonList[0].link})
+        var ds = new ListView.DataSource({ rowHasChanged:(r1,r2) => r1.place_id !== r2.place_id });
+        this.setState({files:ds.cloneWithRows(jsonList)})
         // return jsonList[0];
     }catch(error){
         console.error(error);
@@ -217,19 +211,19 @@ class AudioList extends Component {
   }
 
   render() {
-    const { files } = this.props;
+    // const { files } = this.props;
     // var files = [1,2,3]
-    // var scroll = !this.props.isLoading && !this.props.isEmpty ?
-    // (<ScrollView style={styles.listContainer}>
-    //             <RefreshableListView
-    //                 dataSource={files}
-    //                 renderRow={this.renderRow}
-    //                 loadData={this.updateList}
-    //                 refreshDescription="Refreshing articles"
-    //                 automaticallyAdjustContentInsets = {false}
-    //             />
-    //     </ScrollView>):
-    // ( <View/> );
+    var scroll = !this.props.isLoading && !this.props.isEmpty ?
+    (<ScrollView style={styles.listContainer}>
+                <RefreshableListView
+                    dataSource={this.state.files}
+                    renderRow={this.renderRow}
+                    loadData={this.updateList}
+                    refreshDescription="Refreshing articles"
+                    automaticallyAdjustContentInsets = {false}
+                />
+        </ScrollView>):
+    ( <View/> );
     var title = this.getAudioFileList();
     console.log("title")
     console.log(title);
@@ -271,9 +265,10 @@ class AudioList extends Component {
             </Toast>
             {spinner}
             <View style={styles.container}>
-                <Text>{this.state.temp}</Text>
+                <Text>၂၄။ စိတၱႏုပႆနာ ႐ႈကြက္</Text>
+                <Text style={{fontFamily: 'Zawgyi-One'}}>ျမန္မာစာာ</Text>
             </View>
-
+            {scroll}
             {empty}
         </View>
     );
@@ -364,6 +359,7 @@ const styles = StyleSheet.create({
 
     },
     address: {
+        fontFamily: 'Zawgyi-One',
         fontSize: 14,
         flex: 9
     },
